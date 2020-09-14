@@ -117,7 +117,7 @@ Docker Engine
 	Tool which you have already Installed.
 Docker Image
 	is collection of Filesystem 	
-	ROOT Filesystem 
+	ROOT Filesystem aka Base
 		USER Filesystem 
 		APP Filesystem 
 	From One Image - You can create multiple container.
@@ -242,6 +242,169 @@ pause vs unpause ????
 
 
 Proof "What is container"
+=================================
+Kernal
+	namespace
+		PID NS - pro	1
+		USER NS - 	N
+		MOUNT nS	1
+		Net		1
+
+ 78  docker ps -a
+   79  ps
+   80  ps
+   81  ps
+   82  clear
+   83  ls
+   84  ps
+   85  ps -eaf | grep 18216
+   86  ps -eaf | grep 18214
+   87  ps -eaf | grep 18195
+   88  ps -eaf | grep 18194
+   89  ps -eaf | grep 18191
+   90  ps -eaf | grep 1230
+   91  clear
+   92  ps -eaf
+   93  clear
+   94  ls
+   95  docker ps
+   96  docker stop 2049cca0079b 0182da5a32b1
+   97  clear
+   98  docker ps
+   99  ps -eaf | grep docker
+  100  ps -eaf | grep 19015
+  101  ps -eaf | grep 8979
+  102  clear
+  103  ps -eaf | grep docker
+  104  exit
+  105  exit
+  106  docker exec -it c64e23088c87 /bin/bash
+  107  ps -eaf
+  108  clear
+  109  docker exec -it c64e23088c87 /bin/bash
+  110  df -kh
+  111  docker ps
+  112  clear
+  113  docker ps -a
+  114  docker start 0182da5a32b1
+  115  clear
+  116  df -kh
+  117  cd /var/lib/docker/overlay2/4e08f07a31cd0820a242bb0ad605abcf824966a2e572e5fc416d7a9a33b8bdc1/merged
+  118  ls
+  119  pwd
+  120  docker ps
+  121  clear
+  122  docker ps
+  123  docker exec c64e23088c87 df -kh
+  124  docker exec c64e23088c87 ls /
+  125  clear
+  126  docker exec 0182da5a32b1 ls /
+  127  docker exec 0182da5a32b1 df -kh
+  128  docker exec c64e23088c87 df -kh
+  129  docker exec c64e23088c87 ls /var/jenkins_home
+  130  docker exec 0182da5a32b1 ls /var/jenkins_home
+  131  docker exec 0182da5a32b1 touch /var/jenkins_home/rajesh.txt
+  132  docker exec c64e23088c87 ls /var/jenkins_home
+  133  docker exec 0182da5a32b1 ls /var/jenkins_home
+  134  clear
+  135  docker ps
+  136  docker inspect c64e23088c87 | grep -i ip
+  137  docker inspect 0182da5a32b1 | grep -i ip
+  138  clear
+  139  ls
+  140  cd
+  141  ls
+
+How to work with or use container?
+===================================
+Imporants of PID 1
+=============================
+Physcial Server		Virtual Server		Container
+is running		is running		is running
+Only & IF		Only & IF		Only & IF 
+PID 1 is running	PID 1 is running	PID 1 is running
+
+will be systemd		will be systemd		ANYTHING
+
+
+145  clear
+  146  docker ps
+  147* docker exec c64e
+  148  docker exec -it c64e23088c87 /bin/bash
+  149  docker ps
+  150  docker exec -it 0182da5a32b1 /bin/bash
+  151  docker ps
+  152  docker ps -a
+  153  docker start c64e23088c87
+  154  clear
+  155  docker ps
+  156  docker exec -it c64e23088c87 /bin/bash
+  157  docker ps
+
+What is RUN?
+============================================
+pull -> create -> start - Become(Attached to a container)
+
+What is RUN -d?
+============================================
+pull -> create -> start - DO NOT Become(DeAttached to a container)
+
+
+
+How can i go inside a container?
+=========================================
+exec
+	Would execute an any executable inside a container
+	BUT with -it and /bin/bash - to inside a container.
+
+ 114  docker exec a7294712959f ls
+  115  docker exec a7294712959f df -kh
+  116  clear
+  117  docker exec a7294712959f sss
+  118  clear
+  119  docker ps'
+  120  docker ps
+  121  docker exec a7294712959f /bin/bash
+  122  docker exec -it a7294712959f /bin/bash
+
+
+attach
+	it get attached to PID 1.
+
+====================================================================
+If you are -it with bash - you can use CONTRL + p + Q to come out of the container.
+====================================================================
+  107  clear
+  108  docker run -d jenkins
+  109  docker ps
+  110  clear
+  111  ps -eaf
+  112  clear
+  113  docker run -it ubuntu
+  114  docker ps -a
+  115  clear
+  116  docker run -it ubuntu
+  117  docker ps
+
+
+How can i access from outside using port? - web
+
+docker run -d -p 8080:8080 jenkins
+
+120  docker ps
+  121  docker inspect c64e23088c87 | grep -i ip
+  122  ping 172.17.0.2
+  123  clear
+  124  curl http://172.17.0.2:8080
+  125  clear'
+  126  clear
+  127  docker run -d -p 8080:8080 jenkins
+  128  docker ps
+  129  docker run -d -p 8080:8080 jenkins
+  130  docker run -d -p 8081:8080 jenkins
+
+
+How to troubleshoot a docker?
 =================================
 
 
