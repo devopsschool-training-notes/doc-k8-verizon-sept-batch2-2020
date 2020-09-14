@@ -1,0 +1,139 @@
+Rajesh Kumar
++91 8105843520
+===================
+
+9:30 AM - 6:30 PM - Test@6PM IST
+=====================================
+Pre Test - Now
+Post Test - 5th Day
+====================================
+Lunch break - 1 PM IST - 2:00 PM
+Coffee - Rest Rooms - 15 mins each 
+==================================
+Lab - - 
+
+https://www.devopsschool.com/lms/
+
+Docker Essential Quiz - 1
+https://www.devopsschool.com/lms/mod/quiz/view.php?id=250
+
+Kubernetes Essential Quiz - 1
+https://www.devopsschool.com/lms/mod/quiz/view.php?id=319
+
+Marks	0.00/25.00
+Grade	0.00 out of 10.00 (0%)
+====================================
+
+Docker - 2 Days
+Kube - 3 Days
+===============================
+What is Docker?
+	Container mgmt tool.
+	Container Interface
+	Open Source
+	Written Golang
+	By Soloman
+	Release
+		Community ed
+		Enterprise ed
+	version
+		19.X
+
+	mgmt - managing something(container)
+	tool - 
+		Save cost
+		Saving time
+		Imp* effiency*
+				FOR RUNNING APPS in Datacenter
+	What is Container?
+	=========================
+	Lighteight Fully Independent/ISOlated APP run time env with all dependency in place.
+	
+	USER SPACE
+			with their own
+				net
+				mnt
+				pid
+		
+
+How any APPS can run in Compute unit?
+What are the componets we NEED IT to RUN apps?
+=============================================
+
+Kernal
+	namespace
+		PID NS - pro	1
+		USER NS - 	N
+		MOUNT nS	1
+		Net		1
+		
+		CGROUPS	
+		Capabitlies 	ROOT or NON root
+
+	PID
+	A PID (i.e., process identification number) is an identification number that is automatically assigned 	to each process when it is created on a Unix-like operating system. A process is an executing (i.e., 	running) instance of a program. Each process is guaranteed a unique PID, which is always a non-negative 	integer
+	cgroups 
+	(abbreviated from control groups) is a Linux kernel feature that limits, accounts for, and isolates the 	resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes.
+
+	Filesystem(S)
+	BOOT Filesystem ( Kernal code )
+		ROOT Filesystem 
+			USER Filesystem 
+			APP Filesystem 
+	
+==================================================================================================
+1990s		 FREEAPS	2000s					Now
+==================================================================================================
+DESKTOP	
+PYHYSCAL SERVER				VIRTUAL SERVER	
+
+PC - Personal Computing	
+	==== OS == KERNAL
+		PID NS - pro	1
+		USER NS - 	N
+		MOUNT nS	1
+		Net		1						
+
+======================================================
+Other container mgmt tool?
+=======================================================
+https://www.devopsschool.com/blog/list-of-top-container-runtime-interface-projects/
+
+
+How to install Docker?
+====================================
+Demo - 13.126.146.144
+https://www.devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+
+Docker Architecutre? Aka How Docker Works!!!
+==========================================
+
+
+Docker Components AKA Docker Workflows
+=====================================
+
+Container Lifecycle
+======================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
