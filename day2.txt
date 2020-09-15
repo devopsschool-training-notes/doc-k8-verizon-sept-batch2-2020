@@ -285,7 +285,76 @@ Working with Docker Image
   444  docker start acc97f125c38
   445  ls
 
+================================================================
+2 Method - using we can create an Image.
+========================================
+1 - Using Existing Container - Manual way
+= One image
+		Which has Flavour OF linux - Ubuntu
+		jdk
+		apache
+		git
+		copy some files
+		-------------
+		create a image
 
+
+
+ 459  docker run -it ubuntu
+  460  clear
+  461  docker ps
+  462  docker exec 3fe9ba0e7a47 git
+  463  clear
+  464  git
+  465  java
+  466  docker exec 3fe9ba0e7a47 java
+  467  clear
+  468  ls
+  469  ls
+  470  vi index.html
+  471  docker cp index.html 3fe9ba0e7a47:/opt
+  472  clear
+  473  ls
+  474  docker ps
+  475  docker commit -m"ub-up-git-ap" -a"Rajesh Kumar" 3fe9ba0e7a47 ub-up-git-ap
+  476  docker images
+  477  docker run -itd --name mine ub-up-git-ap
+  478  docker ps
+  479  docker exec 5b8173ba2714 git
+  480  clear
+  481  ls
+  482  docker exec 5b8173ba2714 java
+  483  cleare
+  484  clear
+  485  docker images
+  486  docker history ub-up-git-ap
+  487  docker inspect ub-up-git-ap
+
+
+Inside a container
+-------------------------'
+   1  java
+    2  git
+    3  which apache
+    4  which apache2
+    5  apt-get install openjdk-8-jdk package
+    6  apt-get update
+    7  clear
+    8  apt-get install openjdk-8-jdk package
+    9  apt-get install openjdk-7-jre
+   10  apt-get install openjdk-8-jdk
+   11  clear
+   12  java
+   13  clear
+   14  apt-get install apache2
+   15  which apache2
+   16  apt-get install git -y
+   17  git
+   18  history
+
+
+
+2. Using Dockerile - Automated
 
 
 
