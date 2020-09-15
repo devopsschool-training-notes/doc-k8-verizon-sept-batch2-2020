@@ -1,0 +1,95 @@
+13.233.79.106
+==========================
+https://www.devopsschool.com/tutorial/docker/commands/index.html
+
+cp
+============
+ 252  ls
+  253  vi devopsschool.txt
+  254  more devopsschool.txt
+  255  ls
+  256  docker ps
+  257  docker cp devopsschool.txt fb05b692cf3f:/opt
+  258  docker exec fb05b692cf3f ls /opt
+  259  docker exec fb05b692cf3f more /opt/devopsschool.txt
+  260  ls
+  261  rm -rf devopsschool.txt
+  262  ls
+  263  docker cp fb05b692cf3f:/opt/devopsschool.txt .
+  264  ls
+  265  more devopsschool.txt
+  266  clear
+
+diff
+==============
+		files got 
+				Added
+				Changed
+				Deleted 
+				After a Containers got created
+
+
+  274  clear
+  275  docker ps
+  276  docker diff fb05b692cf3f
+  277  docker port fb05b692cf3f
+  278  docker run -p 8080:8080 -d jenkins
+  279  docker ps
+  280  docker port 0b92f0b9c114
+  281  clear
+  282  docker ps
+  283  docker renmae fb05b692cf3f dev2
+  284  docker rename fb05b692cf3f dev2
+  285  docker ps
+  286  docker run -itd --name dev1 ubuntu
+  287  docker ps
+
+
+Containers Troubleshooting
+
+Assignment
+===========================
+update
+wait
+
+ 289  clear
+  290  docker ps
+  291  docker logs 31fb4bb7f107
+  292  docker logs 0b92f0b9c114
+  293  clear
+  294  docker ps
+  295  docker logs 31fb4bb7f107
+  296  dockers stats
+  297  docker stats
+  298  docker stats 31fb4bb7f107
+  299  docker ps
+  300  ps -eaf | grep docker
+  301  docker run -p 8090:8080 -d jenkins
+  302  clear
+  303  ps -eaf | grep docker
+  304  docker ps
+  305  docker top f5cb5b7ac188
+  306  ps -eaf | grep 2290
+  307  clear
+  308  docker ps
+  309  ps -eaf | grep jenkins.sh
+  310  docker ps
+  311  docker exec f5cb5b7ac188 ps -eaf
+  312  clear
+  313  docker version
+  314  clear
+  315  ps -eaf | grep docker
+  316  history
+
+
+  316  history
+  317  clear
+  318  ls
+  319  docker events
+  320  history
+
+
+
+Working with Docker Image
+
+Sharing an Image
