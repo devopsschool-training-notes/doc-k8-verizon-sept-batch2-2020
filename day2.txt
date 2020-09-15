@@ -351,7 +351,60 @@ Inside a container
    16  apt-get install git -y
    17  git
    18  history
+=============================================
+How can we share an Images?
+========================================
+- using TAR Ball
 
+  496  docker images
+  497  ls
+  498  docker save -o ub-up-git-ap.tar ub-up-git-ap
+  499  lsd
+  500  ls
+  501  du -sh ub-up-git-ap.tar
+  502  docker images
+  503  docker ps
+  504  docker stop 5b8173ba2714 3fe9ba0e7a47 acc97f125c38
+  505  docker rm 5b8173ba2714 3fe9ba0e7a47 acc97f125c38
+  506  clear
+  507  docker ps -a
+  508  docker images
+  509  docker rmi ub-up-git-ap
+  510  docker images
+  511  ls
+  512  docker load -i ub-up-git-ap.tar
+  513  docker images
+  514  docker run -itd ub-up-git-ap
+  515  docker ps
+
+
+
+- using Registry
+	hub.docker.com	
+	Step 1 - Register your account
+	Step 2 - Login to hub
+	Step 3 - Create a public repo
+	Step 4 - Login to hub using putty
+	Step 5 - Image Repo name in Local and HUb MUST match
+	Step 6 - push an image.
+
+
+	google registry
+	artifactory
+	nexus
+
+ 518  docker images
+  519  docker login
+  520  docker login
+  521  clear
+  522  docker images
+  523  docker tag ub-up-git-ap devopsschools/vertuesday2020
+  524  docker images
+  525  docker tag ub-up-git-ap devopsschools/vertuesday2020:v1
+  526  docker images
+  527  docker push devopsschools/vertuesday2020
+  528  clear
+  529  docker push devopsschools/vertuesday2020
 
 
 2. Using Dockerile - Automated
