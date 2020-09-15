@@ -88,6 +88,105 @@ wait
   319  docker events
   320  history
 
+========================================================
+
+Docker Volume
+===================================
+Lets understand data persistency issues with containers?
+-------------------------------------------------------
+Docker Volume TYPE
+		Volume		/var/lib/docker/volumes
+		mountfs		AnyWhere
+		tempfs		in Memory
+https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep-dive-level/
+
+ 276  docker volume create dev
+  277  docker volume create qa
+  278  clear
+  279  ls
+  280  clear
+  281  docker volume ls
+  282  clear
+  283  ls
+  284  clear
+  285  docker run -itd -v dev:/opt/raju ubuntu
+  286  docker ls
+  287  docker ls
+  288  docker ps
+  289  docker exec e3d048f8fd04 df -kh
+  290  ls
+  291  clear
+  292  ls
+  293  docker exec e3d048f8fd04 touch /opt/raju/dddd
+  294  ls
+  295  clear
+  296  cd dev/
+  297  ls
+  298  cd _data/
+  299  ls
+  300  touch fsdfsfsdf
+  301  docker exec e3d048f8fd04 ls /opt/raju
+  302  docker ps
+  303  clear
+  304  docker ps
+  305  docker stop e3d048f8fd04
+  306  docker rm e3d048f8fd04
+  307  clear
+  308  ls
+  309  docker volume ls
+
+
+  312  ls
+  313  docker volume ls
+  314  docker run -itd -v dev:/opt/one -v qa:/opt/second ubuntu
+  315  docker ps
+  316  clear
+  317  docker exec 4dd93c11f958 ls /opt/
+  318  docker run -itd -v dev:/opt/one -v qa:/opt/second ubuntu
+  319  docker ps
+  320  docker exec f88c66076730 ls .opt
+  321  docker exec f88c66076730 ls /opt
+  322   clear
+
+328  docker run -itd -v /opt/kaka:/opt/kaku ubuntu
+  329  docker ps
+  330  docker exec c77f89bdf9df ls /opt/
+  333  clear
+  334  cd /opt/
+  335  ls
+  336  cd kaka/
+  337  ls
+  338  touch sdasdfs
+  339  ls
+  340  docker ps
+  341  docker exec c77f89bdf9df ls /opt/kaku
+  342  clear
+
+
+ 344  history
+  345  clear
+  346  ls
+  347  dcoker volume -h
+  348  docker volume -h
+  349  docker volume prune
+  350  clear
+  351  ls
+  352  ls
+  353  docker volume ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Working with Docker Image
