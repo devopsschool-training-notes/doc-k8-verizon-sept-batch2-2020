@@ -412,9 +412,43 @@ docker pull http://10.6.7.7:8081/jenkins
 
 
 2. Using Dockerile - Automated
+=============================================
+Rules to understand dockerfile
+------------------------------
+- Everyline is dockerfile create ONE LAYER
+- Every line is child of previous line
+
+FROM ubuntu
+MAINTAINER rajesh kumar devops@rajeshkumar.xyz
+RUN apt-get update
+RUN apt-get install git -y
+COPY index.html /opt/
+ENV APP_HOME /opt/xyz/mnp
 
 
+FROM ubuntu
+MAINTAINER rajesh kumar devops@rajeshkumar.xyz
+RUN touch /opt/file1.txt
+RUN touch /opt/file2.txt
+RUN touch /opt/file3.txt
 
+ 542  vi dockerfile
+  543  touch index.html
+  544  docker build -t ima1 .
+  545  docker images
+  546  docker history ima1
+  547  clear
+  548  ls
+  549  vi doc2
+  550  ls
+  551  docker build -t img2 -f doc2 .
+
+
+You need to find out.
+	Which port jenkins got exposed
+	How volumes got created in jenkins container
+	Which user jenkins is running with?
+	What are the env set for Jenkins container?
 
 
 
