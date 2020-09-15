@@ -190,5 +190,117 @@ https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep
 
 
 Working with Docker Image
+================================
+
+  357  docker stop c77f89bdf9df f88c66076730 4dd93c11f958 6dda62163e15 f5cb5b7ac188 31fb4bb7f107 0b92f0b9c114 fb05b692cf3f
+  358  docker rm c77f89bdf9df f88c66076730 4dd93c11f958 6dda62163e15 f5cb5b7ac188 31fb4bb7f107 0b92f0b9c114 fb05b692cf3f
+  359  clear
+  360  docker ps -a
+  361  docker images
+  362  docker rmi ubuntu jenkins
+  363  cls
+  364  clear
+  365  docker images
+  366  docker info
+  367  clear
+  368  cd /var/lib/docker/
+  369  ls
+  370  cd overlay2
+  371  ls
+  372  du -sh .
+  373  docker images
+  374  docker pull ubuntu
+  375  clear
+  376  docker images
+  377  ls
+  378  pwd
+  379  docker inspect ubuntu
+  380  clear
+  381  ls
+  382  docker inspect ubuntu
+  383  ls
+  384  clear
+  385  ls
+  386  docker history ubuntu
+  387  docker images
+  388  ls
+  389  clear
+  390  ls
+  391  du -h --max-depth=1
+  392  cd ./df5fc7de279f6a97b94f3b67117c250f46e52bec3c1e5a771c329e00e5018386
+  393  clear
+  394  ls
+  395  cd diff
+  396  ls
+  397  cd ..
+  398  ls
+  399  cd ..
+  400  ls
+  401  du -h --max-depth=1
+  402  cd ./6e3fd1dfdd6dac6877b9c6382e1be428600d1957602d02786daae370acbc954d
+  403  clear
+  404  ls
+  405  cd diff/
+  406  ls
+  407  cd var/
+  408  ls
+  409  cd cache/
+  410  la
+  411  ls
+  412  cd apt/
+  413  las
+  414  clear
+  415  ls
+  416  ls -la
+  417  pwd
+  418  cd /var/lib/docker/overlay2
+  419  clear
+  420  ls
+
+
+
+ 421  history
+  422  clear
+  423  ls
+  424  docker run -itd ubuntu
+  425  ls
+  426  du -sh fdd3f28549f8a7025422bc6ef5d4978ff92e61bbb3328647eab213208a6791f1-init
+  427  du -sh fdd3f28549f8a7025422bc6ef5d4978ff92e61bbb3328647eab213208a6791f1
+  428  df -kh
+  429  cd fdd3f28549f8a7025422bc6ef5d4978ff92e61bbb3328647eab213208a6791f1
+  430  clear
+  431  ls
+  432  df -kh
+  433  docker ps
+  434  docker inspect acc97f125c38
+  435  clear
+  436  ls
+  437  docker ps
+  438  docker exec acc97f125c38 touch /opt/devops.txt
+  439  find . -name devops.txt
+  440  docker ps
+  441  docker stop acc97f125c38
+  442  find . -name devops.txt
+  443  ls
+  444  docker start acc97f125c38
+  445  ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Sharing an Image
