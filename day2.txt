@@ -406,11 +406,12 @@ How can we share an Images?
   528  clear
   529  docker push devopsschools/vertuesday2020
 
+docker login http://10.6.7.7:8081/jenkins
+docker push http://10.6.7.7:8081/jenkins
+docker pull http://10.6.7.7:8081/jenkins
+
 
 2. Using Dockerile - Automated
-
-
-
 
 
 
