@@ -69,5 +69,137 @@ https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sampl
    33  docker run ubuntu more
    34  docker ps -a
    35  history
+======================================================================================
+What is Docker Compose?
+Why Docker Compose?
+	Automating Docker Dev Process
+
+
+Docker-Compose
+		docker-compose.yaml
+		services
+			web
+				build - dockerfile
+				image - imgname
+				net
+				volume
+				env
+				port
+			app
+				build - dockerfile
+				image - imgname
+				net
+				volume
+				env
+				port
+			db
+				build - dockerfile
+				image - imgname
+				net
+				volume
+				env
+				port
+===========================================
+docker-compose up
+docker-compose down
+docker-compose stop
+docker-compose start
+docker-compose ps
+docker-compose log
+
+
+
+How to install?
+https://docs.docker.com/compose/install/
+
+ 37  sudo curl -L "https://github.com/docker/compose/releases/download/1.27.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   38  sudo chmod +x /usr/local/bin/docker-compose
+   39  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+   40   docker-compose --version
+   41  history
+
+
+
+
+  45  vi docker-compose.yaml
+   46  vi docker-compose help
+   47  docker-compose help
+   48  clear
+   49  docker-compose ps
+   50  docker-compose up -d
+   51  docker-compose ps
+   52  docker-compose logs
+   53  docker-compose stop'
+   54  docker-compose stop
+   55  docker-compose ps
+   56  docker-compose logs
+   57  docker-compose start
+
+
+
+version: '2'
+services:
+  wordpress:
+    image: wordpress:latest # https://hub.docker.com/_/wordpress/
+    ports:
+      - 80:80 # change ip if required
+    volumes:
+      - ./wp-app:/var/www/html # Full wordpress project
+      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - wordpress-network
+  db:
+    image: mysql:latest # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    ports:
+      - 127.0.0.1:3306:3306 # change ip if required
+    volumes:
+      - ./wp-data:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - wordpress-network
+networks:
+  wordpress-network:
+      driver: bridge
+
+=============================================
+
+kernal
+	ns 
+		net ns ------> 	1 net ns TO PM
+				1 net ns to VM
+				1 net ns to container
+=============================================================
+
+  60  cl;ear
+   61  clear
+   62  docker network ls
+   63  ps -eas
+   64  clear
+   65  docker ps
+   66  ifconfig
+   67  docker network ls
+   68  docker ps
+   69  docker inspect dc674a84fbac | grep -i ip
+   70  docker inspect b229f38131ca | grep -i ip
+   71  clear
+   72  docker network create dev
+   73  docker network ls
+   74  docker run -itd --net=dev ubuntu
+   75  docker ps
+   76  docker inspect d4827f1ff90e | grep -i ip
+   77  docker network ls
+   78  history
+
+
 
 
