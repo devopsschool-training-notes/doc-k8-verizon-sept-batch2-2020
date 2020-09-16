@@ -1,0 +1,73 @@
+You need to find out.
+	Which port jenkins got exposed
+	How volumes got created in jenkins container
+	Which user jenkins is running with?
+	What are the env set for Jenkins container?
+
+
+Jenkins
+	openjdk:8-jdk
+		buildpack-deps:buster-scm
+			buildpack-deps:buster-curl
+				debian:buster
+					scratch
+
+
+How to set PID 1 for the container?
+======================================================
+CMD
+		CMD can be replaced
+		
+ENTRYPOINT
+		ENTRYPOINT CAN NOT be replaced
+======================================================
+Mode of Execution in Compute Unit
+---------------------------------------
+- SHELL Mode
+	ls  param1 param2 param3
+	more  param1 param2 param3
+	ps  param1 param2 param3
+
+- Executable Mode
+	/bin/ls  param1 param2 param3
+	/bin/more  param1 param2 param3
+	/bin/ps	 param1 param2 param3
+	/use/local/java param1 param2 param3
+172.31.23.255
+=========================================================
+Assignment
+========================
+What about If you keep 2 ENTRYPOINT in one DOCKERfile
+What about If you keep 2 CMD in one DOCKERfile
+What about If you keep 1 CMD 1 ENTRYPOINT  in one DOCKERfile
+
+Use of LINK in Container - 
+https://www.devopsschool.com/tutorial/docker/labs/docker/docker-lab-6-link.html
+
+Fix and RUn all these Dockerfile and experience it
+https://www.devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sample-lab.html
+
+
+15  docker images
+   16  docker run -d ubuntu
+   17  docker ps -a
+   18  docker run -d ubuntu ls
+   19  docker ps -a
+   20  clear
+   21  docker run ubuntu ls
+   22  docker ps -a
+   23  clear
+   24  docker run -d jenkins
+   25  docker ps
+   26  docker run -d jenkins ls
+   27  docker ps
+   28  docker ps -s
+   29  docker ps -a
+   30  clear
+   31  docker run ubuntu dsadasda
+   32  docker ps -a
+   33  docker run ubuntu more
+   34  docker ps -a
+   35  history
+
+
