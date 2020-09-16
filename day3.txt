@@ -199,6 +199,91 @@ kernal
    76  docker inspect d4827f1ff90e | grep -i ip
    77  docker network ls
    78  history
+=============================================================
+Master
+	API Server	-> POD -> Container -> Docker Image -> Google Regsitry
+	Etcd		-> POD -> Container -> Docker Image -> Google Regsitry
+	Controller mgr	-> POD -> Container -> Docker Image -> Google Regsitry
+	Schedular	-> POD -> Container -> Docker Image -> Google Regsitry
+
+	kubelet -> POD
+	Docker -> Container
+	Kube Proxy-> POD -> Container -> Docker Image -> Google Regsitry
+	kubeadm
+Worker
+	kubelet -> POD
+	Docker -> Container
+	Kube Proxy-> POD -> Container -> Docker Image -> Google Regsitry
+	kubeadm
+
+Workstation	
+	kubectl
+
+=======================================================
+kubeadm
+	Setup a Master Node
+	Setup a worker Node
+	Backup
+	Admin
+	Security 
+https://github.com/kubernetes/kubeadm
+
+
+Learning
+	ONE Node - minikube
+	https://github.com/kubernetes/minikube
+	VM 
+	 ONE Node Clustor
+
+Production
+	Manual
+		Physcal 	kubeadm
+		Virtual		kubeadm
+		Cloud		KOPS
+	Hosted
+		aws 		eks
+		gc		gke
+		AZURE		aks
+	https://kubernetes.io/docs/home/	
+				
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/				
+13.233.45.218
+
+
+
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.5.147:6443 --token njqixa.rhhz67a6llbqrgvj \
+    --discovery-token-ca-cert-hash sha256:ca019fd94603207e24baa3939969a9873c5061dccb011e15ae74c9cf2beb82e8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
