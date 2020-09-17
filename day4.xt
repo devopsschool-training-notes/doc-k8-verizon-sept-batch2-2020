@@ -280,11 +280,241 @@ kubectl port-forward pod/hello-pod-rajesh 8888:80 -n=rajesh
   124  kubectl exec hello-pod-rajesh ls /opt -n=rajesh
   125  history
 
+====================================================================
+ReplicationController
+
+Replication -> N Number Of Pods. - Pods can scale N num using RC.
+Controller -> This controller would make sure that the Desire == Actual Pods at any given point of time.
 
 
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hello-rc
+spec:
+  replicas: 2   
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-ctr
+        image: scmgalaxy/nginx-devopsschoolv1
+        ports:
+        - containerPort: 80
+
+ 126  kubectl port-forward pod/hello-pod-rajesh 8888:80 -n=rajesh
+  127  kubectl port-forward -h
+  128  clear
+  129  ls
+  130  sudo -s
+  131  kubectl get rc
+  132  kubectl get rc -n=rajesh
+  133  kubectl creare rc -h
+  134  kubectl create rc -h
+  135  clear
+  136  ls
+  137  vi rc.yaml
+  138* kubectl create -f rc.yaml -n=rajesh=
+  139  kubectl get rc -n=rajesh
+  140  kubectl get rc -n=rajesh'
+  141  kubectl get rc -n=rajesh
+  142  kubectl gte pods -n=rajesh
+  143  kubectl get pods -n=rajesh
+  144  clear
+  145  kubectl get rc -n=rajesh
+  146  kubectl describe rc hello-rc -n=rajesh
+  147  clear
+  148  ls
+  149  kubectl get pods -n=rajesh -o wide
+  150  curl http://10.44.0.3
+  151  clear
+  152  ls
+  153  kubectl get rc -n=rajesh
+  154  kubectl edit rc hello-rc -n=rajesh
+  155  kubectl get rc -n=rajesh
+  156  kubectl edit rc hello-rc -n=rajesh
+  157  kubectl get pods -n=rajesh
+  158  clear
+  159  ls
+  160  vi rc.yaml
+  161  kubectl apply -f rc.yaml -n=rajesh
+  162  kubectl get pods -n=rajesh
+  163  clear
+  164  kubectl get pods -n=rajesh
+  165  kubectl scale -h
+  166  clear
+  167  kubectl get rc -n=rajesh]
+  168  kubectl get rc -n=rajesh
+  169  kubectl scale --replicas=4 rc/hello-rc -n=rajesh
+  170  kubectl get rc -n=rajesh
+  171  clear
+  172  kubectl get pods -n=rajesh
+  173  kubectl delete pod hello-rc-5zmr5 hello-rc-dd22p hello-rc-jrn5g -n=rajesh
+  174  kubectl get pods -n=rajesh
+  175  kubectl autocale -h
+  176  kubectl autoscale -h
+  177  clear
+  178  ls
+  179  kubectl get rc -n=rajesh
+  180  kubectl delete rc hello-rc -n=rajesh
+  181  history
 
 
+ 183  kubectl explain
+  184  kubectl explain ns
+  185  kubectl explain ns.spec
+  186  clear
+  187  kubectl explain pods
+  188  kubectl explain pods.spec
+  189  kubectl explain pods.spec.containers
+  190  c,lear
+  191  clear
+  192  kubectl explain rc
+  193  kubectl explain rc.spec
+  194  kubectl explain rc.spec.template
+  195  kubectl explain rc.spec.template.spec
+  196  history
 
+
+Deployment
+==========================================================================
+Replication(ReplicaSet) -> N Number Of Pods. - Pods can scale N num using RC.
+		ReplicaSet is Next version of RC
+Controller -> This controller would make sure that the Desire == Actual Pods at any given point of time.
+
+
+Versioing 
+	up to 10 unique image deployment history
+
+Rollout
+
+Rollback
+
+
+ kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1 -n=rajesh
+
+
+  history     View rollout history
+  pause       Mark the provided resource as paused
+  restart     Restart a resource
+  resume      Resume a paused resource
+  status      Show the status of the rollout
+  undo        Undo a previous rollout
+
+kubectl rollout history deploy/my-dep -n=rajesh
+kubectl rollout status  deploy/my-dep -n=rajesh
+kubectl scale --replicas=20 deploy/my-dep -n=rajesh
+kubectl rollout status  deploy/my-dep -n=rajesh
+
+kubectl rollout undo deploy/my-dep --to-revision=1 -n=-rajesh
+
+  197  clear
+  198  kubectl create -h
+  199  clear
+  200  kubectl create deployment -h
+  201  clear
+  202  kubectl get deploy -n=rajesh
+  203  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1 -n=rajesh
+  204  kubectl get deploy -n=rajesh
+  205  kubectl get pods -n=rajesh
+  206  kubectl get deploy -n=rajesh
+  207  kubectl describe deploy my-dep -n=rajesh
+  208  clear
+  209  ls
+  210  kubectl get pods -n=rajesh
+  211  kubectl describe pod my-dep-747b4ffb56-9h42n -n=rajesh
+  212  kubectl get pods -n=rajesh
+  213  kubectl describe pod hello-pod-rajesh -n=rajesh
+  214  clear
+  215  kubectl describe pod hello-pod-rajesh -n=rajesh | grep -i controll
+  216  ls
+  217  clear
+  218  ls
+  219  kubectl get deploy -n=rajesh
+  220  kubectl edit deploy my-dep -n=rajesh
+  221  kubectl get pods -n=rajesh
+  222  clear
+  223  ls
+  224  kubectl get deploy my-dep -n=rajesh
+  225  kubectl get deploy my-dep -n=rajesh -o yaml
+  226  kubectl get deploy my-dep -n=rajesh -o yaml >> dep.yaml
+  227  clear
+  228  ls
+  229  vi dep.yaml
+  230  more dep.yaml
+  231  clear
+  232  ls
+  233  kubectl get deploy -n=rajesh
+  234  kubectl apply -f dep.yaml -n=rajesh
+  235  kubectl get deploy -n=rajesh
+  236  clear
+  237  ls
+  238  kubeclt scale --replicas=4 deploy/my-dep -n=rajesh
+  239  kubectl scale --replicas=4 deploy/my-dep -n=rajesh
+  240  kubectl get deploy -n=rajesh
+  241  ls
+  242  vi dep.yaml
+  243  kubectl apply dep.yaml -n=rajesh
+  244  kubectl apply -f dep.yaml -n=rajesh
+  245  vi dep.yaml
+  246  kubectl apply -f dep.yaml -n=rajesh
+  247  kubectl get deploy -n=rajesh
+  248  kubectl
+  249  kubectl  convert -h
+  250  kubectl  convert dep.yaml
+  251  kubectl  convert -f dep.yaml
+  252  kubectl  convert -f dep.yaml >> dep1.yaml
+  253  more dep1.yaml
+  254  ls
+  255  clear
+  256  ls
+  257  kubectl apply -f dep1.yaml -n=rajesh
+  258  clear
+  259  ls
+  260  clear
+  261  ls
+  262  kubectl get pods -n=rajesh
+  263  kubectl delete pod my-dep-747b4ffb56-95rdc my-dep-747b4ffb56-9h42n my-dep-747b4ffb56-dnqtq my-dep-747b4ffb56-thrl9 my-dep1-747b4ffb56-6mv79 my-dep1-747b4ffb56-6qxb6 my-dep1-747b4ffb56-7v9jc my-dep1-747b4ffb56-8plpp my-dep1-747b4ffb56-ncxnk my-dep1-747b4ffb56-rssvf hello-pod-rajesh
+  264  kubectl delete pod my-dep-747b4ffb56-95rdc my-dep-747b4ffb56-9h42n my-dep-747b4ffb56-dnqtq my-dep-747b4ffb56-thrl9 my-dep1-747b4ffb56-6mv79 my-dep1-747b4ffb56-6qxb6 my-dep1-747b4ffb56-7v9jc my-dep1-747b4ffb56-8plpp my-dep1-747b4ffb56-ncxnk my-dep1-747b4ffb56-rssvf hello-pod-rajesh -n=rajesh
+  265  kubectl get pods -n=rajesh
+  266  clear
+  267  ls
+  268  kubectl rollout -h
+  269  clear
+  270  kubectl rollout history deploy/my-dep -n=rajesh
+  271  kubectl get deloy -n=rajesh
+  272  kubectl get deploy -n=rajesh
+  273  kubectl get pods -n=rajesh
+  274  kubectl get pods -n=rajesh -o wide
+  275  curl http://10.44.0.6
+  276  clear
+  277  kubectl edit deploy my-dep -=rajesh
+  278  kubectl edit deploy my-dep -n=rajesh
+  279  kubectl get pods -n=rajesh -o wide
+  280  curl http://10.44.0.12
+  281  kubectl rollout history deploy/my-dep -n=rajesh
+  282  kubectl get deploy -n=rajesh
+  283  kubectl edit deploy my-dep -n=rajesh
+  284  kubectl rollout -h
+  285  history
+  286  kubectl rollout undo -h
+  287  clear
+  288  kubectl rollout history deploy/my-dep -n=rajesh
+  289  kubectl rollout status  deploy/my-dep -n=rajesh
+  290  kubectl scale --replicas=20 deploy/my-dep -n=rajesh
+  291  kubectl rollout status  deploy/my-dep -n=rajesh
+  292  kubectl get deploy -n=rajesh
+  293  kubectl rollout history deploy/my-dep -n=rajesh
+  294  kubectl rollout undo deploy/my-dep --to-revision=1 -n=-rajesh
+  295  kubectl rollout undo deploy/my-dep --to-revision=1 -n=rajesh
+  296  kubectl rollout status  deploy/my-dep -n=rajesh
+  297  kubectl rollout history deploy/my-dep -n=rajesh
+  298  kubectl get pods -n=rajesh
+  299  kubectl get pods -n=rajesh -o wide
+  300  curl http://10.44.0.16
+  301  history
 
 
 
