@@ -251,28 +251,60 @@ https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-m
 
 
 
-
+===========================================
 To start using your cluster, you need to run the following as a regular user:
 
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+===========================================
 You should now deploy a pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
   https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
+# kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+===========================================
 Then you can join any number of worker nodes by running the following on each as root:
 
 kubeadm join 172.31.5.147:6443 --token njqixa.rhhz67a6llbqrgvj \
     --discovery-token-ca-cert-hash sha256:ca019fd94603207e24baa3939969a9873c5061dccb011e15ae74c9cf2beb82e8
+===========================================
+
+
+
+Master - 13.126.57.240
+Worker - 15.206.93.143
+
+Workstation	
+	kubectl (Need API Server Add and Auth)
+		$USER_HOME/.kube/config
+		
+
+	What is the content of config (yaml)
+	==============================
+	Clustor(S)
+		Clustor1	- http:/// ip: 6443.
+		Clustor2
+		Clustor3
+		Clustor4
+	User(S)
+		user 1		pvt key + crt
+		user 2
+		user 2
+	Context(S)	
+		Context1 = Clustor1 + user 2
+		Context2 = Clustor2 + user 3
+	curr-context - Context1  or Context2 
+	
+
+How to validate CLustor?
+================================
 
 
 
 
 
-
-
+	
+		
 
 
 
