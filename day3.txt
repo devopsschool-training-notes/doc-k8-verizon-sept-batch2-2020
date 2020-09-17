@@ -300,7 +300,13 @@ How to validate CLustor?
 ================================
 
 
+How to remove or cleanup kubernetes worker nodes in Centos 7?
+https://www.devopsschool.com/blog/how-to-delete-remove-clean-existing-corrupted-or-old-kubeadm-kubernetes-clusters-setup/
 
+
+IP issues
+Solution 4 - 
+https://www.devopsschool.com/blog/kubernetes-error-kubeadm-related-errors-and-solutions/
 
 
 	
