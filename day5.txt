@@ -1,0 +1,89 @@
+Service
+========================
+	TYPES
+		ClustorIP
+			Create a Service but IP range is from POD network aka clustor
+		NodePort
+			Create a Service but IP range is from POD network aka clustor
+			plus
+			service would get exposed to EACH node of the clustor.
+				         ----------
+					  port forward
+		Loadbalancer
+			Create a Service but IP range is from POD network aka clustor
+			plus
+			service would get exposed to EACH node of the clustor.
+				         ----------
+					  port forward
+			Plus
+			One LOadBalancer would create and 
+			Each Node of the clustor would be addedd to LB.
+
+
+15.207.88.203
+centos
+centos123
+
+
+kubectl create service clusterip my-cs --tcp=5678:80 -n=rajesh
+
+
+ 413  vi pod.yaml
+  414  kubectl delete -f pod.yaml -n=rajesh
+  415  kubectl create -f pod.yaml -n=rajesh
+  416  clear
+  417  kubectl get pod -n=rajesh -o wide --show-labels
+  418  curl http://10.44.0.1
+  419  kubectl create service -h
+  420  clear
+  421  kubectl create service -h
+  422  kubectl create service clusterip -h
+  423  clear
+  424  kubectl create service clusterip my-cs --tcp=5678:80 -n=rajesh
+  425  kubectl get svc -n=rajesh
+  426  kubectl get svc
+  427  kubectl get svc -n=rajesh
+  428  kubectl describe svc my-cs -n=rajesh
+  429  clear
+  430  kubectl describe svc my-cs -n=rajesh --show-labels
+  431  kubectl get svc my-cs -n=rajesh --show-labels
+  432  kubectl get pod -n=rajesh --show-labels
+  433  kubectl edit svc my-cs -n=rajesh
+  434  kubectl get pod -n=rajesh --show-labels
+  435  kubectl get svc my-cs -n=rajesh --show-labels
+  436  kubectl describe svc my-cs -n=rajesh --show-labels
+  437  kubectl describe svc my-cs -n=rajesh
+  438  kubectl edit svc my-cs -n=rajesh
+  439  kubectl describe svc my-cs -n=rajesh
+  440  curl http://10.109.231.62
+  441  curl http://10.109.231.62:5678
+  442  clear
+  443  ls
+  444  co pod.yaml pod1.yaml
+  445  cp pod.yaml pod1.yaml
+  446  vi pod.yaml
+  447  kubectl create -f pod.yaml -n=rajesh
+  448  kubectl describe svc my-cs -n=rajesh
+  449  curl http://10.109.231.62:5678
+  450  clear
+  451  ls
+  452  vi pod.yaml
+  453  kubectl create -f pod.yaml -n=rajesh
+  454  vi pod.yaml
+  455  kubectl create -f pod.yaml -n=rajesh
+  456  kubectl describe svc my-cs -n=rajesh
+  457  watch curl http://10.109.231.62:5678
+  458  clear
+  459  history
+
+
+
+
+
+
+
+
+
+
+
+
