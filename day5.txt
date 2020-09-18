@@ -120,5 +120,159 @@ demo.devopsschool.com
   504  kubectl get svc -n=rajesh
   505  kubectl describe svc final -n=rajesh
 
+====================================================
+Kubernetes Volume
+==============================
+- PODS are emp*
+	So Data of the POD(Container) Emph*
+
+=====================================
+Kubernetes
+		uses 
+			Volume Interface aka plugins
+					Understand Storage
+================================================================
+Storage Technology
+	Block Storage such as Laptop Storage, EBS
+	
+	Object Storgae such as Git, Gdrive, s3
+
+	File Storage (Network) such as NFS, efs
+
+
+Volume Interface aka Volume Plugin
+===================
+is built in Kubernetes.
+https://kubernetes.io/docs/concepts/storage/volumes/
+
+awsElasticBlockStore
+azureDisk
+azureFile
+cephfs
+cinder
+configMap
+csi
+downwardAPI
+emptyDir
+fc (fibre channel)
+flexVolume
+flocker
+gcePersistentDisk
+gitRepo (deprecated)
+glusterfs
+hostPath
+iscsi
+local
+nfs
+persistentVolumeClaim
+projected
+portworxVolume
+quobyte
+rbd
+scaleIO
+secret
+storageos
+vsphereVolume
+
+https://kubernetes.io/docs/concepts/storage/storage-classes/
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+
+1. I want to store data in the host aka worker	=> HostPath  - Can be used only by one POD at a time.
+2. I want to store data in the NFS mount	=> NFS 	   - Can be used multiple POD at a time.
+3. I want to store data in the Clustor (etcd)  - key - value - configMap
+==================================================================================
+			LIFECYCLE OF KUBERNET Volume
+=================================================================================
+Provisioning			=> Binding		=> Using 		=> Reclaim
+=====================================================================================
+making a Pool of Volume		=> Claiminng a vol	=> POD & Container
+avai for Clustor
+=================		============		================
+Admin				user			user
+- Static - PV			PVC			pod.spec.volume
+- Dynamic - StorageClass(PV)	PVC			pod.spec.container.volumemounts
+===================================================================================
+https://www.devopsschool.com/blog/persistentvolume-persistentvolumeclaim-volumes-using-hostpath/
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: hostpath1
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/devopsschool1"
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: hostpath2
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/devopsschool2"
+
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvchostpath1
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvchostpath2
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: task-pv-pod
+spec:
+  containers:
+    - name: task-pv-container
+      image: scmgalaxy/nginx-devopsschoolv1
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: task-pv-storage
+  volumes:
+    - name: task-pv-storage
+      persistentVolumeClaim:
+        claimName: pvchostpath1
+
+https://www.devopsschool.com/blog/kubernetes-persistentvolume-and-persistentvolumeclaim-using-nfs-volume-types/
+https://www.devopsschool.com/tutorial/kubernetes/kubernetes-resource-objects/secrets-example-programs.html
+https://www.devopsschool.com/tutorial/kubernetes/labs/lab-9-kubernetes-configMaps-secrets.htmls
+
 
 
