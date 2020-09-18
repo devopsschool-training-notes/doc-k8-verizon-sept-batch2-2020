@@ -274,5 +274,86 @@ https://www.devopsschool.com/blog/kubernetes-persistentvolume-and-persistentvolu
 https://www.devopsschool.com/tutorial/kubernetes/kubernetes-resource-objects/secrets-example-programs.html
 https://www.devopsschool.com/tutorial/kubernetes/labs/lab-9-kubernetes-configMaps-secrets.htmls
 
+============================================================
+Authentication and AUthorization
+
+Authentication - How to login to Kubernetes
+https://kubernetes.io/docs/reference/access-authn-authz/authentication/
+- X509 Client Certs
+
+AUthorization  - What you are allowed to do?
+https://kubernetes.io/docs/reference/access-authn-authz/authorization/
+RBAC
+=====================
+Role Based Access Control
+
+
+
+
+	
+
+
+
+
+https://github.com/devopsschool-training-notes/Kubernetes-Tecnotree-Nov-2019/blob/master/SUPERNOTES.TXT
+
+openssl x509 -req -in employee.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out employee.crt -days 500
+
+kubectl config set-credentials employee --client-certificate=/home/centos/employee.crt  --client-key=/home/centos/employee.key
+
+kubectl config set-context employee-context --cluster=kubernetes --namespace=office --user=employee
+
+kubectl --context=employee-context get pods
+
+
+
+
+
+Helm
+Package manager tool for Kubernetesd
+=====================
+package === charts
+	 - Directory structute for YAML.
+
+
+
+Dashboard
+==================================
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+
+Monitoring
+
+kubectl port-forward service/kubernetes-dashboard 443  -n=kubernetes-dashboard
+
+kubectl port-forward service/kubernetes-dashboard 8001:443  -n=kubernetes-dashboard
+kubectl port-forward service/kubernetes-dashboard 8001:80 -n kube-system
+
+
+Monitoring
+	INFRA
+	------------------
+	Container		cadvisor
+	Pod			metricess-server
+	Node			Promethus
+
+	Log
+	-------------------
+	Container Log		ELK - ElasicSearch
+	Kubectl Event log
+	
+=============================================
+How can we get 
+	Videos
+	Slides
+	Tutorials
+	Lab
+	Notes
+	QA
+	Blogs
+https://www.devopsschool.com/kit/master-in-devops-engineering.html
+
+How to reach out me?
+www.RajeshKumar.xyz
+
 
 
