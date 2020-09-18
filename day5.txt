@@ -16,7 +16,7 @@ Service
 				         ----------
 					  port forward
 			Plus
-			One LOadBalancer would create and 
+			One Ext LOadBalancer would create and 
 			Each Node of the clustor would be addedd to LB.
 
 
@@ -76,14 +76,49 @@ kubectl create service clusterip my-cs --tcp=5678:80 -n=rajesh
   458  clear
   459  history
 
+kubectl create service nodeport my-ns --tcp=5678:80 -n=rajesh
 
 
+ 460  clear
+  461  kubectl create service
+  462  kubectl create service nodeport -h
+  463  clear
+  464  kubectl get svc -n=rajesh
+  465  kubectl create service nodeport my-ns --tcp=5678:80 -n=rajesh
+  466  kubectl get svc -n=rajesh
+  467  kubectl describe svc my-ns -n=rajesh
+  468  kubectl get pods --show-labels -n=rajesh
+  469  kubectl edit svc my-ns -n=rajesh
+  470  kubectl describe svc my-ns -n=rajesh
+  471  cleart
+  472  clear
+  473  kubectl get svc -n=rajesh
+  474  watch curl http://10.106.14.64:5678
 
 
+kubectl create service loadbalancer my-lm --tcp=5678:80 -n=rajesh
 
 
+kubectl expose deploy my-dep1 --port=80 --target-port=80 --name=final --type=LoadBalancer -n=rajesh
+
+demo.devopsschool.com
 
 
+ 491  kubectl craete -f dep1.yaml -n=rajesh
+  492  kubectl ceeate -f dep1.yaml -n=rajesh
+  493  kubectl create -f dep1.yaml -n=rajesh
+  494  kubectl get pods -nm=rajesh
+  495  clear
+  496  kubectl get pods -n=rajesh
+  497  kubectl export -h
+  498  kubectl expose -h
+  499  kubectl get pods -n=rajesh
+  500  clear
+  501  kubectl expose deploy my-dep1 --port=80 --target-port=80 --name=final --type=LoadBalancer
+  502  clear
+  503  kubectl expose deploy my-dep1 --port=80 --target-port=80 --name=final --type=LoadBalancer -n=rajesh
+  504  kubectl get svc -n=rajesh
+  505  kubectl describe svc final -n=rajesh
 
 
 
